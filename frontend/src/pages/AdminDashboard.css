@@ -1,0 +1,297 @@
+.admin-page {
+  min-height: calc(100vh - 58px);
+  background: var(--bg);
+  padding: 2rem 2.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.admin-header {
+  margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.admin-header p {
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+
+/* ── Stats grid ──────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 900px)  { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px)  { .stats-grid { grid-template-columns: 1fr; } }
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: border-color var(--transition);
+}
+
+.stat-card:hover { border-color: var(--border-2); }
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-2);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+/* ── Tabs ────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  gap: 0.15rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-2);
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ── Table container ─────────────────────────────────── */
+.table-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table-toolbar {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.table-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.table-count {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  background: var(--surface-2);
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+}
+
+.table-scroll { overflow-x: auto; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.855rem;
+  min-width: 700px;
+}
+
+.data-table th {
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+
+.data-table tbody tr {
+  transition: background var(--transition);
+}
+
+.data-table tbody tr:hover td { background: var(--surface-2); }
+
+.cell-muted  { color: var(--text-2) !important; font-size: 0.82rem; }
+.cell-dimmer { color: var(--text-3) !important; font-size: 0.78rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ── Tags / Badges ───────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.badge.admin   { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(67,97,238,0.2); }
+.badge.user    { background: var(--surface-3); color: var(--text-2); border: 1px solid var(--border); }
+.badge.active  { background: var(--green-dim); color: var(--green); border: 1px solid rgba(46,196,182,0.2); }
+.badge.inactive{ background: var(--red-dim); color: var(--red); border: 1px solid rgba(230,57,70,0.2); }
+.badge.log-action { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(249,115,22,0.2); font-size: 0.68rem; letter-spacing: 0.05em; }
+
+/* ── Action buttons ──────────────────────────────────── */
+.action-cell { display: flex; gap: 0.35rem; align-items: center; }
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.icon-btn:hover               { background: var(--surface-2); color: var(--text); border-color: var(--border-2); }
+.icon-btn.edit:hover          { color: var(--accent); border-color: rgba(67,97,238,0.3); background: var(--accent-dim); }
+.icon-btn.enable:hover        { color: var(--green); border-color: rgba(46,196,182,0.3); background: var(--green-dim); }
+.icon-btn.disable:hover       { color: var(--amber); border-color: rgba(244,162,97,0.3); background: var(--amber-dim); }
+.icon-btn.delete:hover        { color: var(--red); border-color: rgba(230,57,70,0.3); background: var(--red-dim); }
+.icon-btn.save                { color: var(--green); border-color: rgba(46,196,182,0.3); background: var(--green-dim); }
+.icon-btn.cancel:hover        { background: var(--surface-3); }
+
+/* ── Inline editing ──────────────────────────────────── */
+.inline-input, .inline-select {
+  background: var(--surface-3);
+  border: 1px solid var(--border-2);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.35rem 0.6rem;
+  font-size: 0.82rem;
+  width: 100%;
+  outline: none;
+  font-family: var(--font);
+  transition: border-color var(--transition);
+}
+
+.inline-input:focus, .inline-select:focus { border-color: var(--accent); }
+
+/* ── Empty / loading states ──────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 2rem;
+  color: var(--text-3);
+}
+
+.empty-state p { margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-2); }
+
+/* ── Pagination ──────────────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.pagination-info { font-size: 0.8rem; color: var(--text-2); flex: 1; }
+
+.pg-btn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.pg-btn:hover:not(:disabled) { background: var(--surface-3); color: var(--text); border-color: var(--border-2); }
+.pg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* ── Toast ───────────────────────────────────────────── */
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 900;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.855rem;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  animation: toastIn 0.25s ease;
+  border: 1px solid transparent;
+  max-width: 320px;
+}
+
+.toast.success { background: #f0fdf4; color: var(--green); border-color: rgba(22,163,74,0.25); }
+.toast.error   { background: #fff1f2; color: var(--red); border-color: rgba(230,57,70,0.25); }
+
+@keyframes toastIn { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }

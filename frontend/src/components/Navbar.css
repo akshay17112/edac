@@ -1,0 +1,217 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 62px;
+  background: linear-gradient(135deg, #ffb347 0%, #f97316 100%);
+  box-shadow: 0 2px 16px rgba(249,115,22,0.35);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* ── Brand ───────────────────────────────────────────── */
+.navbar-brand a {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.82);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.nav-link:hover  { color: #fff; background: rgba(255,255,255,0.15); }
+.nav-link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  font-weight: 600;
+}
+
+/* ── Divider ─────────────────────────────────────────── */
+.navbar-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255,255,255,0.25);
+  margin: 0 0.6rem;
+}
+
+/* ── User pill ───────────────────────────────────────── */
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.3rem 0.45rem 0.3rem 0.85rem;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+}
+
+.user-name {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.role-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.role-badge.admin {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+.role-badge.user {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+.logout-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.16s ease, transform 0.16s ease;
+  flex-shrink: 0;
+}
+
+.logout-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.08);
+}
+
+/* ── Logout Modal ────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.15s ease;
+}
+
+.modal-box {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  animation: scaleIn 0.18s ease;
+}
+
+.modal-icon {
+  width: 46px;
+  height: 46px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  font-size: 1.3rem;
+}
+
+.modal-box h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+}
+
+.modal-box p {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+.btn-ghost {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 0.55rem 1.1rem;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.btn-ghost:hover { background: #f1f5f9; color: #1e293b; }
+
+.btn-danger {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  padding: 0.55rem 1.1rem;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.btn-danger:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn-danger:disabled, .btn-ghost:disabled { opacity: 0.55; cursor: not-allowed; }
+
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { transform: scale(0.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
