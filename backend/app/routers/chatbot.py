@@ -22,7 +22,7 @@ def _get_groq_client():
             try:
                 from groq import Groq
                 _groq_client = Groq(api_key=api_key)
-            except ImportError:
+            except Exception:
                 pass
     return _groq_client
 
@@ -91,16 +91,24 @@ def send_message(
                 max_tokens=512,
             )
             response_text = result.choices[0].message.content
-        except Exception:
+        except Exception as e:
+            print(f"Groq error: {e}")
             response_text = _fallback_response(payload.message)
     else:
         response_text = _fallback_response(payload.message)
 
-    chat = ChatHistory(user_id=current_user.id, message=payload.message, response=response_text)
-    db.add(chat)
-    db.commit()
+    try:
+        chat = ChatHistory(user_id=current_user.id, message=payload.message, response=response_text)
+        db.add(chat)
+        db.commit()
+    except Exception as e:
+        print(f"DB commit error: {e}")
+        db.rollback()
 
-    log_activity(db, current_user, "CHAT_MESSAGE", request, f"msg_len={len(payload.message)}")
+    try:
+        log_activity(db, current_user, "CHAT_MESSAGE", request, f"msg_len={len(payload.message)}")
+    except Exception as e:
+        print(f"Log activity error: {e}")
     return {"response": response_text}
 
 
