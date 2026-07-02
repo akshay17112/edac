@@ -41,7 +41,7 @@ export default function Navbar() {
                 <span className={`role-badge ${user.role}`}>{user.role}</span>
                 <button
                   className="logout-btn"
-                  onClick={() => setShowModal(true)}
+                  onClick={() => { setLoggingOut(false); setShowModal(true); }}
                   title="Logout"
                   aria-label="Logout"
                 >
